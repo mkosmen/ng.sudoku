@@ -1,0 +1,14 @@
+<main class="flex w-screen h-screen items-center justify-center flex-col">
+  <p class="m-3">Please set your game configuration !!!</p>
+  <div class="flex overflow-hidden rounded-md p-1 bg-blue-400 mb-4">
+    @for(i of blocks; track $index) {
+    <span class="p-3 px-4 text-white cursor-pointer" [ngClass]="{'bg-blue-600 rounded-md': i === selectedBlock()}"
+      (click)="select(i)">
+      {{ `${i}x${i} Blocks` }}
+    </span>
+    }
+  </div>
+
+  <a [routerLink]="['game']" [queryParams]="{b:selectedBlock()}"
+    class="py-2 px-4 text-center rounded-sm bg-blue-600 text-white">START GAME</a>
+</main>
